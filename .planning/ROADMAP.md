@@ -12,7 +12,7 @@ This roadmap transforms a blank project into a production-ready MCP Server that 
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Project scaffold, streaming parsers, SQLite storage, adapter pattern
+- [x] **Phase 1: Foundation** - Project scaffold, streaming parsers, SQLite storage, adapter pattern *(completed 2026-05-19)*
 - [ ] **Phase 2: Intelligence** - Cross-session aggregation, dual AI mode, structured task output
 - [ ] **Phase 3: MCP Transport + Persistence** - 5 MCP tools, Markdown output, summary storage
 - [ ] **Phase 4: Web UI + HTTP API** - React SPA with 4 pages, charts, REST API
@@ -85,7 +85,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 4/4 | Executing | - |
+| 1. Foundation | 4/4 | Complete | 2026-05-19 |
 | 2. Intelligence | 0/? | Not started | - |
 | 3. MCP Transport + Persistence | 0/? | Not started | - |
 | 4. Web UI + HTTP API | 0/? | Not started | - |
