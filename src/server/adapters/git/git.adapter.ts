@@ -51,7 +51,13 @@ export class GitAdapter implements DataSourceAdapter {
 						const diff = await git.diffSummary([`${commit.hash}^`, commit.hash]);
 						files = diff.files.map((f) => f.file);
 					} catch {
-						// First commit in repo has no parent — skip diff
+						// First commit in repo has no parent — use diff-tree with --root
+						try {
+							const result = await git.raw(['diff-tree', '--root', '--no-commit-id', '--name-only', '-r', commit.hash]);
+							files = result.trim().split('\n').filter(Boolean);
+						} catch {
+							// Fallback: no files available
+						}
 					}
 
 					yield {
