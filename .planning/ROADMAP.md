@@ -30,7 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Both parsers return data conforming to the same NormalizedEvent interface (adapter pattern working)
   4. User configuration file at ~/.dailywork-matters/config.json is created on first run and supports all documented settings
   5. All path resolution works correctly on Windows (primary), macOS, and Linux (~ resolves via os.homedir())
-**Plans**: TBD
+**Plans**: 4 plans
+Plans:
+- [x] 01-01-PLAN.md — Project scaffold and shared types
+- [x] 01-02-PLAN.md — SQLite database with WAL mode and migrations
+- [x] 01-03-PLAN.md — Claude Code JSONL streaming parser and adapter
+- [x] 01-04-PLAN.md — Git history adapter with identity filtering
 
 ### Phase 2: Intelligence
 **Goal**: The system can take raw normalized events and produce semantically meaningful, outcome-oriented task summaries with cross-session aggregation
@@ -42,7 +47,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Work spanning multiple sessions on the same topic appears as a single merged task entry with final outcome state (not duplicated per session)
   4. Each task in output contains exactly 5 fields: task name, category, outcome description, files involved, time proportion
   5. Summary describes what was accomplished (outcomes) rather than what operations were performed (process)
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 02-01-PLAN.md — Intelligence types, config extension, and content compression
+- [ ] 02-02-PLAN.md — AI client, prompts, aggregation, and window processor
+- [ ] 02-03-PLAN.md — Zero-config mode, merge processor, renderer, and public API
 
 ### Phase 3: MCP Transport + Persistence
 **Goal**: Developers can use all 5 MCP tools from any MCP client and summaries persist as Markdown files for future reference
@@ -86,7 +95,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-05-19 |
-| 2. Intelligence | 0/? | Not started | - |
+| 2. Intelligence | 0/3 | Planning complete | - |
 | 3. MCP Transport + Persistence | 0/? | Not started | - |
 | 4. Web UI + HTTP API | 0/? | Not started | - |
 | 5. Distribution + Operations | 0/? | Not started | - |
