@@ -54,15 +54,19 @@ Plans:
 - [x] 02-03-PLAN.md — Zero-config mode, merge processor, renderer, and public API
 
 ### Phase 3: MCP Transport + Persistence
-**Goal**: Developers can use all 5 MCP tools from any MCP client and summaries persist as Markdown files for future reference
+**Goal**: Developers can use all 6 MCP tools from any MCP client and summaries persist as Markdown files for future reference
 **Depends on**: Phase 2
 **Requirements**: DLVR-01, DLVR-02, DLVR-04, OPS-01
 **Success Criteria** (what must be TRUE):
-  1. Running `npx dailywork-matters-mcp` starts a stdio MCP Server and an MCP client can list all 5 registered tools (generate_daily_summary, list_today_sessions, configure_settings, get_summary_by_date, generate_batch_summary)
+  1. Running `npx dailywork-matters-mcp` starts a stdio MCP Server + HTTP server and an MCP client can list all 6 registered tools
   2. Calling generate_daily_summary produces a summary and saves it as Markdown to the configured output directory (default: ~/dailywork-matters/summaries/YYYY-MM-DD.md)
-  3. Calling generate_batch_summary with a date range processes each day that has session data but no existing summary
+  3. Calling generate_batch_summary with a date range processes each day with max 3 concurrency, skipping days with no data
   4. All MCP communication happens over stdio without stdout pollution (logging to stderr only)
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 03-01-PLAN.md — Server bootstrap, DB migration, and persistence layer
+- [ ] 03-02-PLAN.md — MCP tool registration (6 tools)
+- [ ] 03-03-PLAN.md — MCP resources, prompts, and integration test
 
 ### Phase 4: Web UI + HTTP API
 **Goal**: Developers can browse summaries, trigger generation, view charts, and manage settings through a local web interface
