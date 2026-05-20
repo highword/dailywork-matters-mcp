@@ -67,20 +67,28 @@ describe('config', () => {
 			const config = loadConfig();
 			expect(config).toEqual(DEFAULT_CONFIG);
 		});
+
+		it('migrates old flat apiKey/model to nested ai block', () => {
+			fs.writeFileSync(TEST_CONFIG_PATH, JSON.stringify({ apiKey: 'sk-old', model: 'claude-opus-4-6' }));
+			const config = loadConfig();
+			expect(config.ai.apiKey).toBe('sk-old');
+			expect(config.ai.mergeModel).toBe('claude-opus-4-6');
+			expect(config.ai.windowModel).toBe('claude-haiku-4-5-20251001');
+		});
 	});
 
 	describe('saveConfig', () => {
 		it('merges partial updates with existing config', () => {
 			loadConfig(); // create initial
-			const result = saveConfig({ language: 'ja', apiKey: 'sk-test' });
+			const result = saveConfig({ language: 'ja', ai: { apiKey: 'sk-test', windowModel: 'claude-haiku-4-5-20251001', mergeModel: 'claude-sonnet-4-6-20250514' } });
 			expect(result.language).toBe('ja');
-			expect(result.apiKey).toBe('sk-test');
+			expect(result.ai.apiKey).toBe('sk-test');
 			expect(result.httpPort).toBe(37888); // unchanged
 
 			// Verify persisted
 			const raw = JSON.parse(fs.readFileSync(TEST_CONFIG_PATH, 'utf-8'));
 			expect(raw.language).toBe('ja');
-			expect(raw.apiKey).toBe('sk-test');
+			expect(raw.ai.apiKey).toBe('sk-test');
 		});
 	});
 

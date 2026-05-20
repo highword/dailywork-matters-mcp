@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import { getConfigDir } from '../shared/paths.js';
 import { logger } from './logger.js';
 import { migration001 } from './migrations/001-initial.js';
+import { migration002 } from './migrations/002-intelligence.js';
 
 export interface Migration {
 	id: number;
@@ -10,7 +11,7 @@ export interface Migration {
 	sql: string;
 }
 
-const MIGRATIONS: Migration[] = [migration001];
+const MIGRATIONS: Migration[] = [migration001, migration002];
 
 let dbInstance: Database.Database | null = null;
 

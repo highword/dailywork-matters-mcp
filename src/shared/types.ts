@@ -48,9 +48,15 @@ export interface Config {
 	gitRepoManual: string[];
 	gitIdentities: string[];
 
-	// AI
-	apiKey: string | null;
-	model: string;
+	// AI (D-07: layered model selection)
+	ai: {
+		apiKey: string | null;
+		windowModel: string; // default: claude-haiku-4-5-20251001
+		mergeModel: string; // default: claude-sonnet-4-6-20250514
+	};
+
+	// Output format (D-11)
+	outputFormats: ('markdown' | 'html')[];
 
 	// Service
 	httpPort: number;
@@ -72,8 +78,12 @@ export const DEFAULT_CONFIG: Config = {
 	gitRepoScanDirs: [],
 	gitRepoManual: [],
 	gitIdentities: [],
-	apiKey: null,
-	model: 'claude-sonnet-4-6',
+	ai: {
+		apiKey: null,
+		windowModel: 'claude-haiku-4-5-20251001',
+		mergeModel: 'claude-sonnet-4-6-20250514',
+	},
+	outputFormats: ['markdown'],
 	httpPort: 37888,
 	scheduleTime: null,
 	dbPath: '~/.dailywork-matters/db.sqlite',

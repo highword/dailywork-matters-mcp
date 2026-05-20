@@ -32,6 +32,19 @@ export function loadConfig(): Config {
 	try {
 		const raw = fs.readFileSync(configPath, 'utf-8');
 		const userConfig = JSON.parse(raw) as Partial<Config>;
+
+		// Backward compat: migrate old flat fields to nested ai block
+		if (!('ai' in userConfig) && ('apiKey' in userConfig || 'model' in userConfig)) {
+			const rawObj = userConfig as Record<string, unknown>;
+			(userConfig as Record<string, unknown>).ai = {
+				apiKey: (rawObj.apiKey as string | null) ?? null,
+				windowModel: 'claude-haiku-4-5-20251001',
+				mergeModel: (rawObj.model as string) ?? 'claude-sonnet-4-6-20250514',
+			};
+			delete rawObj.apiKey;
+			delete rawObj.model;
+		}
+
 		// Merge: user overrides take precedence, defaults fill missing fields
 		return { ...DEFAULT_CONFIG, ...userConfig };
 	} catch (err) {
