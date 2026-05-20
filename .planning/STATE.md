@@ -70,5 +70,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-05-20
-Stopped at: Phase 3 context gathered, ready to plan
-Resume file: .planning/phases/03-mcp-transport/03-CONTEXT.md
+Stopped at: Phase 3 planned (3 plans, 2 waves), ready to execute
+Resume file: .planning/phases/03-mcp-transport/03-01-PLAN.md
