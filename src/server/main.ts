@@ -1,10 +1,14 @@
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
+import { ClaudeAdapter } from './adapters/claude/claude.adapter.js';
+import { GitAdapter } from './adapters/git/git.adapter.js';
+import { AdapterRegistry } from './adapters/registry.js';
 import { loadConfig, resolveConfigPaths } from './config.js';
 import { closeDatabase, initDatabase } from './database.js';
 import { logger } from './logger.js';
 import { createMcpServer } from './mcp/server.js';
+import { registerAllTools } from './mcp/tools/index.js';
 
 async function main() {
 	const config = resolveConfigPaths(loadConfig());
@@ -12,8 +16,14 @@ async function main() {
 	// Initialize database
 	initDatabase(config.dbPath);
 
-	// Create MCP server (tools/resources/prompts registered in Phase 3 plans 02/03)
+	// Create adapter registry and register data sources
+	const registry = new AdapterRegistry();
+	registry.register(new ClaudeAdapter(config.claudeSessionsDir));
+	registry.register(new GitAdapter(config));
+
+	// Create MCP server and register all tools
 	const mcpServer = createMcpServer();
+	registerAllTools(mcpServer, config, registry);
 
 	// Connect stdio transport
 	const transport = new StdioServerTransport();
