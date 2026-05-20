@@ -65,8 +65,8 @@ Plans:
 **Plans**: 3 plans
 Plans:
 - [x] 03-01-PLAN.md — Server bootstrap, DB migration, and persistence layer
-- [ ] 03-02-PLAN.md — MCP tool registration (6 tools)
-- [ ] 03-03-PLAN.md — MCP resources, prompts, and integration test
+- [x] 03-02-PLAN.md — MCP tool registration (6 tools)
+- [x] 03-03-PLAN.md — MCP resources, prompts, and integration test
 
 ### Phase 4: Web UI + HTTP API
 **Goal**: Developers can browse summaries, trigger generation, view charts, and manage settings through a local web interface
@@ -100,6 +100,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-05-19 |
 | 2. Intelligence | 1/3 | In progress | - |
-| 3. MCP Transport + Persistence | 1/3 | In progress | - |
+| 3. MCP Transport + Persistence | 3/3 | In progress | - |
 | 4. Web UI + HTTP API | 0/? | Not started | - |
 | 5. Distribution + Operations | 0/? | Not started | - |
