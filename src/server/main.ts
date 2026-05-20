@@ -7,8 +7,7 @@ import { AdapterRegistry } from './adapters/registry.js';
 import { loadConfig, resolveConfigPaths } from './config.js';
 import { closeDatabase, initDatabase } from './database.js';
 import { logger } from './logger.js';
-import { createMcpServer } from './mcp/server.js';
-import { registerAllTools } from './mcp/tools/index.js';
+import { createMcpServer, registerAll } from './mcp/index.js';
 
 async function main() {
 	const config = resolveConfigPaths(loadConfig());
@@ -21,9 +20,9 @@ async function main() {
 	registry.register(new ClaudeAdapter(config.claudeSessionsDir));
 	registry.register(new GitAdapter(config));
 
-	// Create MCP server and register all tools
+	// Create MCP server and register all capabilities (tools, resources, prompts)
 	const mcpServer = createMcpServer();
-	registerAllTools(mcpServer, config, registry);
+	registerAll(mcpServer, config, registry);
 
 	// Connect stdio transport
 	const transport = new StdioServerTransport();
