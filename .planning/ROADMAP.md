@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Project scaffold, streaming parsers, SQLite storage, adapter pattern *(completed 2026-05-19)*
 - [x] **Phase 2: Intelligence** - Cross-session aggregation, dual AI mode, structured task output *(completed 2026-05-20)*
-- [ ] **Phase 3: MCP Transport + Persistence** - 5 MCP tools, Markdown output, summary storage
+- [x] **Phase 3: MCP Transport + Persistence** - 5 MCP tools, Markdown output, summary storage *(completed 2026-05-20)*
 - [ ] **Phase 4: Web UI + HTTP API** - React SPA with 4 pages, charts, REST API
 - [ ] **Phase 5: Distribution + Operations** - npx packaging, scheduler, cross-platform validation
 
@@ -99,7 +99,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-05-19 |
-| 2. Intelligence | 1/3 | In progress | - |
-| 3. MCP Transport + Persistence | 3/3 | In progress | - |
+| 2. Intelligence | 3/3 | Complete | 2026-05-20 |
+| 3. MCP Transport + Persistence | 3/3 | Complete | 2026-05-20 |
 | 4. Web UI + HTTP API | 0/? | Not started | - |
 | 5. Distribution + Operations | 0/? | Not started | - |

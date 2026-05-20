@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-05-18)
 
 **Core value:** Developers get a single, intelligent daily report showing WHAT they accomplished — zero manual effort required.
-**Current focus:** Phase 3: MCP Transport + Persistence
+**Current focus:** Phase 4: Web UI + HTTP API
 
 ## Current Position
 
-Phase: 3 of 5 (MCP Transport + Persistence)
-Plan: 3 of 3 in current phase
-Status: Executing (all plans complete, verifying)
-Last activity: 2026-05-20 — Phase 3 all plans executed (server, 6 tools, resources, prompts, tests)
+Phase: 4 of 5 (Web UI + HTTP API)
+Plan: 0 of ? in current phase
+Status: Ready to discuss
+Last activity: 2026-05-20 — Phase 3 complete (3 plans, MCP transport + persistence done)
 
 Progress: [██████░░░░] 60%
 
