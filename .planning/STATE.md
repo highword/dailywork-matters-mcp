@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-05-18)
 ## Current Position
 
 Phase: 3 of 5 (MCP Transport + Persistence)
-Plan: 0 of ? in current phase
-Status: Ready to plan
-Last activity: 2026-05-20 — Phase 2 executed (3 plans complete, intelligence layer done)
+Plan: 1 of 3 in current phase
+Status: Executing (Wave 1 complete, Wave 2 in progress)
+Last activity: 2026-05-20 — Phase 3 Wave 1 complete (server bootstrap, migration, persistence)
 
-Progress: [████░░░░░░] 40%
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 

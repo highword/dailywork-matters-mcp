@@ -64,7 +64,7 @@ Plans:
   4. All MCP communication happens over stdio without stdout pollution (logging to stderr only)
 **Plans**: 3 plans
 Plans:
-- [ ] 03-01-PLAN.md — Server bootstrap, DB migration, and persistence layer
+- [x] 03-01-PLAN.md — Server bootstrap, DB migration, and persistence layer
 - [ ] 03-02-PLAN.md — MCP tool registration (6 tools)
 - [ ] 03-03-PLAN.md — MCP resources, prompts, and integration test
 
@@ -100,6 +100,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-05-19 |
 | 2. Intelligence | 1/3 | In progress | - |
-| 3. MCP Transport + Persistence | 0/? | Not started | - |
+| 3. MCP Transport + Persistence | 1/3 | In progress | - |
 | 4. Web UI + HTTP API | 0/? | Not started | - |
 | 5. Distribution + Operations | 0/? | Not started | - |
