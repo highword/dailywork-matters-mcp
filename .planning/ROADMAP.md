@@ -13,7 +13,7 @@ This roadmap transforms a blank project into a production-ready MCP Server that 
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Project scaffold, streaming parsers, SQLite storage, adapter pattern *(completed 2026-05-19)*
-- [ ] **Phase 2: Intelligence** - Cross-session aggregation, dual AI mode, structured task output
+- [x] **Phase 2: Intelligence** - Cross-session aggregation, dual AI mode, structured task output *(completed 2026-05-20)*
 - [ ] **Phase 3: MCP Transport + Persistence** - 5 MCP tools, Markdown output, summary storage
 - [ ] **Phase 4: Web UI + HTTP API** - React SPA with 4 pages, charts, REST API
 - [ ] **Phase 5: Distribution + Operations** - npx packaging, scheduler, cross-platform validation
@@ -49,9 +49,9 @@ Plans:
   5. Summary describes what was accomplished (outcomes) rather than what operations were performed (process)
 **Plans**: 3 plans
 Plans:
-- [ ] 02-01-PLAN.md — Intelligence types, config extension, and content compression
-- [ ] 02-02-PLAN.md — AI client, prompts, aggregation, and window processor
-- [ ] 02-03-PLAN.md — Zero-config mode, merge processor, renderer, and public API
+- [x] 02-01-PLAN.md — Intelligence types, config extension, and content compression
+- [x] 02-02-PLAN.md — AI client, prompts, aggregation, and window processor
+- [x] 02-03-PLAN.md — Zero-config mode, merge processor, renderer, and public API
 
 ### Phase 3: MCP Transport + Persistence
 **Goal**: Developers can use all 5 MCP tools from any MCP client and summaries persist as Markdown files for future reference
@@ -95,7 +95,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-05-19 |
-| 2. Intelligence | 0/3 | Planning complete | - |
+| 2. Intelligence | 1/3 | In progress | - |
 | 3. MCP Transport + Persistence | 0/? | Not started | - |
 | 4. Web UI + HTTP API | 0/? | Not started | - |
 | 5. Distribution + Operations | 0/? | Not started | - |

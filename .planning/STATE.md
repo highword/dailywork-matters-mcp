@@ -5,33 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-05-18)
 
 **Core value:** Developers get a single, intelligent daily report showing WHAT they accomplished — zero manual effort required.
-**Current focus:** Phase 2: Intelligence
+**Current focus:** Phase 3: MCP Transport + Persistence
 
 ## Current Position
 
-Phase: 2 of 5 (Intelligence)
-Plan: 0 of 3 in current phase
-Status: Ready to execute
-Last activity: 2026-05-20 — Phase 2 planned (3 plans in 3 waves)
+Phase: 3 of 5 (MCP Transport + Persistence)
+Plan: 0 of ? in current phase
+Status: Ready to plan
+Last activity: 2026-05-20 — Phase 2 executed (3 plans complete, intelligence layer done)
 
-Progress: [██░░░░░░░░] 20%
+Progress: [████░░░░░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: 0 hours
+- Total plans completed: 3
+- Average duration: 6min
+- Total execution time: 0.3 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 2 | 3 | 17min | 6min |
 
 **Recent Trend:**
-- Last 5 plans: -
-- Trend: -
+- Last 5 plans: 7min, 5min, 5min
+- Trend: stable
 
 *Updated after each plan completion*
 
@@ -44,6 +44,13 @@ Recent decisions affecting current work:
 
 - [Roadmap]: 5 phases derived from requirement categories; streaming parser is Phase 1 (one-way architectural door)
 - [Roadmap]: OPS-01 split across Phase 1 (scaffold) and Phase 3 (full MCP registration) — primary assignment Phase 3
+- [02-01]: Config migrated from flat apiKey/model to nested ai block with backward compat
+- [02-01]: Token estimation uses 3.25 chars/token conservative heuristic for mixed code/text
+- [02-01]: Adjacent deduplication fingerprints on first 200 chars
+- [02-02]: Retry only on 429/5xx, immediate throw on 400/401
+- [02-02]: Adaptive strategy: single call <50K tokens, multi-window >=50K tokens
+- [02-03]: Single-project optimization: skip merge API call when only one project
+- [02-03]: Renderer is pure function: JSON is truth, Markdown is derived
 
 ### Pending Todos
 
@@ -63,5 +70,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-05-20
-Stopped at: Phase 2 planned, ready to execute
-Resume file: .planning/phases/02-intelligence/02-01-PLAN.md
+Stopped at: Phase 2 complete, ready for Phase 3
+Resume file: .planning/ROADMAP.md (Phase 3 section)
