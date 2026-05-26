@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push *)",
+      "Bash(pnpm exec *)",
+      "Bash(findstr \"anthropic\")",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit *)",
+      "Bash(not exist *)",
+      "PowerShell(gsd-sdk *)"
+    ]
+  }
+}
