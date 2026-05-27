@@ -10,7 +10,7 @@ export default defineConfig({
   bundle: true,
   splitting: false,
   sourcemap: true,
-  clean: true,
+  clean: false,
   external: ['better-sqlite3'],
   banner: { js: '#!/usr/bin/env node' },
   noExternal: [
