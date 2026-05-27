@@ -13,8 +13,12 @@
     "sourceMap": true,
     "outDir": "dist",
     "rootDir": "src",
-    "types": ["node"]
+    "jsx": "react-jsx",
+    "types": ["node"],
+    "paths": {
+      "@/*": ["./src/ui/*"]
+    }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }
