@@ -1,9 +1,13 @@
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { serve } from '@hono/node-server';
+import { serveStatic } from '@hono/node-server/serve-static';
 import { Hono } from 'hono';
+import fs from 'node:fs';
+import path from 'node:path';
 import { ClaudeAdapter } from './adapters/claude/claude.adapter.js';
 import { GitAdapter } from './adapters/git/git.adapter.js';
 import { AdapterRegistry } from './adapters/registry.js';
+import { createApiApp } from './api/index.js';
 import { loadConfig, resolveConfigPaths } from './config.js';
 import { closeDatabase, initDatabase } from './database.js';
 import { logger } from './logger.js';
@@ -29,9 +33,33 @@ async function main() {
 	await mcpServer.connect(transport);
 	logger.info('MCP server connected via stdio');
 
-	// Start HTTP server (Phase 4 adds frontend routes)
+	// Start HTTP server with API routes + static serving
 	const app = new Hono();
 	app.get('/health', (c) => c.json({ status: 'ok', version: '1.0.0' }));
+
+	// Mount REST API routes FIRST (before static serving) — per D-15, Pitfall 2
+	const apiApp = createApiApp(config, registry);
+	app.route('/api', apiApp);
+
+	// Serve static UI assets (production mode only — when dist/ui exists)
+	const uiDistPath = path.resolve(process.cwd(), 'dist/ui');
+	const uiDistExists = fs.existsSync(path.join(uiDistPath, 'index.html'));
+
+	if (uiDistExists) {
+		app.use('/*', serveStatic({ root: './dist/ui' }));
+
+		// SPA fallback: non-API routes that didn't match a static file -> index.html
+		app.get('*', (c) => {
+			const indexPath = path.join(uiDistPath, 'index.html');
+			const html = fs.readFileSync(indexPath, 'utf-8');
+			return c.html(html);
+		});
+
+		logger.info({ path: uiDistPath }, 'Serving static UI assets');
+	} else {
+		logger.info('UI dist not found — frontend served by Vite dev server in development');
+	}
+
 	const httpServer = serve({ fetch: app.fetch, port: config.httpPort });
 	logger.info({ port: config.httpPort }, 'HTTP server started');
 

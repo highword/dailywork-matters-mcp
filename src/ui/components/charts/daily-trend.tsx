@@ -50,9 +50,10 @@ export function DailyTrend({ from, to }: DailyTrendProps) {
       <LineChart
         data={data}
         margin={{ top: 4, right: 16, bottom: 4, left: 8 }}
-        onClick={(e) => {
-          if (e?.activePayload?.[0]?.payload) {
-            handleClick(e.activePayload[0].payload as TrendData);
+        onClick={(e: unknown) => {
+          const event = e as { activePayload?: Array<{ payload?: TrendData }> } | null;
+          if (event?.activePayload?.[0]?.payload) {
+            handleClick(event.activePayload[0].payload);
           }
         }}
       >

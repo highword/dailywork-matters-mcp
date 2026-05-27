@@ -1,8 +1,7 @@
 import { useMemo, useCallback } from 'react';
-import { Responsive, WidthProvider } from 'react-grid-layout';
-import type { Layout, Layouts } from 'react-grid-layout';
+import { ResponsiveGridLayout } from 'react-grid-layout';
+import type { LayoutItem, ResponsiveLayouts } from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
-import 'react-resizable/css/styles.css';
 import { ChartCard } from './chart-card';
 import { CategoryDonut } from './category-donut';
 import { TimeBar } from './time-bar';
@@ -15,9 +14,7 @@ import { ProjectAllocation } from './project-allocation';
 
 const STORAGE_KEY = 'dwm-chart-layout';
 
-const ResponsiveGridLayout = WidthProvider(Responsive);
-
-const DEFAULT_LAYOUT: Layout[] = [
+const DEFAULT_LAYOUT: LayoutItem[] = [
   { i: 'categories', x: 0, y: 0, w: 1, h: 2 },
   { i: 'time-bar', x: 1, y: 0, w: 1, h: 2 },
   { i: 'trends', x: 0, y: 2, w: 1, h: 2 },
@@ -28,13 +25,13 @@ const DEFAULT_LAYOUT: Layout[] = [
   { i: 'projects', x: 0, y: 8, w: 2, h: 2 },
 ];
 
-const DEFAULT_LAYOUTS: Layouts = {
+const DEFAULT_LAYOUTS: ResponsiveLayouts = {
   lg: DEFAULT_LAYOUT,
   md: DEFAULT_LAYOUT.map((item) => ({ ...item, w: item.w > 1 ? 2 : 1 })),
   sm: DEFAULT_LAYOUT.map((item) => ({ ...item, x: 0, w: 1 })),
 };
 
-function loadLayout(): Layouts | null {
+function loadLayout(): ResponsiveLayouts | null {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored) {
@@ -46,7 +43,7 @@ function loadLayout(): Layouts | null {
   return null;
 }
 
-function saveLayout(layouts: Layouts) {
+function saveLayout(layouts: ResponsiveLayouts) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(layouts));
   } catch {
@@ -100,7 +97,7 @@ export function ChartDashboard({ from, to, resetKey }: ChartDashboardProps) {
     return loadLayout() ?? DEFAULT_LAYOUTS;
   }, [resetKey]);
 
-  const handleLayoutChange = useCallback((_layout: Layout[], allLayouts: Layouts) => {
+  const handleLayoutChange = useCallback((_layout: LayoutItem[], allLayouts: ResponsiveLayouts) => {
     saveLayout(allLayouts);
   }, []);
 
