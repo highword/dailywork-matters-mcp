@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-05-18)
 ## Current Position
 
 Phase: 4 of 5 (Web UI + HTTP API)
-Plan: 0 of 5 in current phase
-Status: Ready to execute
-Last activity: 2026-05-27 — Phase 4 planned (5 plans, 3 waves)
+Plan: 2 of 5 in current phase
+Status: Executing (Wave 1 complete)
+Last activity: 2026-05-27 — Wave 1 complete (API routes + frontend scaffold)
 
 Progress: [██████░░░░] 60%
 

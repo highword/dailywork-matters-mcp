@@ -79,8 +79,8 @@ Plans:
   4. Charts page shows category distribution and time proportion visualizations from stored summary data
 **Plans**: 5 plans
 Plans:
-- [ ] 04-01-PLAN.md — REST API route handlers + unit tests
-- [ ] 04-02-PLAN.md — Frontend scaffold (Vite, React Router, TanStack Query, Tailwind v4, shadcn/ui)
+- [x] 04-01-PLAN.md — REST API route handlers + unit tests
+- [x] 04-02-PLAN.md — Frontend scaffold (Vite, React Router, TanStack Query, Tailwind v4, shadcn/ui)
 - [ ] 04-03-PLAN.md — Summaries page (master-detail) + Generate page (SSE streaming)
 - [ ] 04-04-PLAN.md — Charts page (8 chart types, draggable grid, Recharts)
 - [ ] 04-05-PLAN.md — Settings page + production build integration + human verification
@@ -107,5 +107,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Foundation | 4/4 | Complete | 2026-05-19 |
 | 2. Intelligence | 3/3 | Complete | 2026-05-20 |
 | 3. MCP Transport + Persistence | 3/3 | Complete | 2026-05-20 |
-| 4. Web UI + HTTP API | 0/5 | Planned | - |
+| 4. Web UI + HTTP API | 2/5 | In Progress | - |
 | 5. Distribution + Operations | 0/? | Not started | - |
