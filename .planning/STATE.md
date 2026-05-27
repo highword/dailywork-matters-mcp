@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-05-18)
 ## Current Position
 
 Phase: 4 of 5 (Web UI + HTTP API)
-Plan: 0 of ? in current phase
-Status: Ready to discuss
-Last activity: 2026-05-20 — Phase 3 complete (3 plans, MCP transport + persistence done)
+Plan: 0 of 5 in current phase
+Status: Ready to execute
+Last activity: 2026-05-27 — Phase 4 planned (5 plans, 3 waves)
 
 Progress: [██████░░░░] 60%
 
@@ -69,6 +69,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-21
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-web-ui/04-CONTEXT.md
+Last session: 2026-05-27
+Stopped at: Phase 4 planned — ready to execute
+Resume file: .planning/phases/04-web-ui/04-01-PLAN.md

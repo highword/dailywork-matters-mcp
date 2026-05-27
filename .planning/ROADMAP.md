@@ -107,5 +107,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Foundation | 4/4 | Complete | 2026-05-19 |
 | 2. Intelligence | 3/3 | Complete | 2026-05-20 |
 | 3. MCP Transport + Persistence | 3/3 | Complete | 2026-05-20 |
-| 4. Web UI + HTTP API | 0/5 | In Progress | - |
+| 4. Web UI + HTTP API | 0/5 | Planned | - |
 | 5. Distribution + Operations | 0/? | Not started | - |
