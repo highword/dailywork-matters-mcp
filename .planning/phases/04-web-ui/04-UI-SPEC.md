@@ -57,8 +57,14 @@ Exceptions:
 | Label | 12px | 500 (medium) | 1.4 | Inter |
 | Heading | 20px | 600 (semibold) | 1.2 | Inter |
 | Display | 28px | 700 (bold) | 1.1 | Inter |
-| Data | 13px | 400 (regular) | 1.4 | JetBrains Mono |
-| Data-emphasis | 13px | 600 (semibold) | 1.4 | JetBrains Mono |
+| Data | 14px | 400 (regular) | 1.4 | JetBrains Mono |
+| Data-emphasis | 14px | 600 (semibold) | 1.4 | JetBrains Mono |
+
+**Unique pixel sizes:** 12px, 14px, 20px, 28px (4 sizes).
+
+**Data vs Body differentiation:** Data and Body share 14px but are visually distinct through typeface alone — JetBrains Mono's wider letterforms, tabular figures, and monospaced rhythm create immediate contrast against Inter at the same pixel size. No size gap is needed when the font family already provides sufficient differentiation.
+
+**Weight justification (4 weights: 400, 500, 600, 700):** The Hermes developer-tool aesthetic (D-09) demands "strong weight variation" as an explicit design trait — precision tools use weight to encode information hierarchy (regular for prose, medium for labels/metadata, semibold for headings/emphasis, bold for display/hero). Restricting to 2 weights would flatten the typographic hierarchy and undermine the designed personality. This intentional deviation from the standard 2-weight limit is locked by D-09.
 
 **Rules:**
 - All task names, file paths, dates, and numeric values render in JetBrains Mono (Data role)
@@ -120,6 +126,15 @@ Exceptions:
 6. Date picker selected date
 
 **Never use accent for:** borders, backgrounds of inactive elements, icons in normal state, category badges.
+
+### Focal Points (per page)
+
+| Page | Focal Point | Rationale |
+|------|-------------|-----------|
+| Summaries | Summary detail panel (right side) | The rendered summary is the primary output users came to read; date list is navigation, not destination |
+| Generate | "Generate Summary" CTA + progress stream area | The action trigger and its real-time feedback are the entire purpose of this page |
+| Charts | The chart grid (center viewport) | Chart cards occupy 80%+ of the viewport; sidebar and time-range controls are secondary |
+| Settings | Form sections (scrollable center column) | Configuration fields are the interactive content; section headers provide scanability |
 
 ### Category Colors (Charts)
 
