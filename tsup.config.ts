@@ -11,14 +11,12 @@ export default defineConfig({
   splitting: false,
   sourcemap: true,
   clean: false,
-  external: ['better-sqlite3'],
+  shims: true,
+  external: ['better-sqlite3', 'pino', 'simple-git', '@anthropic-ai/sdk'],
   banner: { js: '#!/usr/bin/env node' },
   noExternal: [
     '@modelcontextprotocol/sdk',
     'hono',
     '@hono/node-server',
-    '@anthropic-ai/sdk',
-    'simple-git',
-    'pino',
   ],
 });

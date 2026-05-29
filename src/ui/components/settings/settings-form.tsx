@@ -80,7 +80,11 @@ export function SettingsForm() {
   // Initialize form state from loaded config
   useEffect(() => {
     if (data) {
-      setFormState(data as FormConfig);
+      setFormState({
+        ...DEFAULT_CONFIG,
+        ...data,
+        ai: { ...DEFAULT_CONFIG.ai, ...(data as any).ai },
+      } as FormConfig);
     }
   }, [data]);
 
