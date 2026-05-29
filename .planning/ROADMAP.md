@@ -83,7 +83,7 @@ Plans:
 - [x] 04-02-PLAN.md — Frontend scaffold (Vite, React Router, TanStack Query, Tailwind v4, shadcn/ui)
 - [x] 04-03-PLAN.md — Summaries page (master-detail) + Generate page (SSE streaming)
 - [x] 04-04-PLAN.md — Charts page (8 chart types, draggable grid, Recharts)
-- [ ] 04-05-PLAN.md — Settings page + production build integration + human verification
+- [x] 04-05-PLAN.md — Settings page + production build integration + human verification
 **UI hint**: yes
 
 ### Phase 5: Distribution + Operations
@@ -107,5 +107,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Foundation | 4/4 | Complete | 2026-05-19 |
 | 2. Intelligence | 3/3 | Complete | 2026-05-20 |
 | 3. MCP Transport + Persistence | 3/3 | Complete | 2026-05-20 |
-| 4. Web UI + HTTP API | 4/5 | In Progress | - |
+| 4. Web UI + HTTP API | 5/5 | Complete | 2026-05-29 |
 | 5. Distribution + Operations | 0/? | Not started | - |

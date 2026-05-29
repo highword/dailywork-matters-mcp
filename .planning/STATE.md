@@ -10,27 +10,28 @@ See: .planning/PROJECT.md (updated 2026-05-18)
 ## Current Position
 
 Phase: 4 of 5 (Web UI + HTTP API)
-Plan: 4 of 5 in current phase
-Status: Executing (Wave 2 complete)
-Last activity: 2026-05-27 — Wave 2 complete (Summaries, Generate, Charts pages)
+Plan: 5 of 5 in current phase (COMPLETE)
+Status: Phase 4 complete — all 5 plans executed
+Last activity: 2026-05-29 — Settings page + production build integration complete
 
-Progress: [██████░░░░] 60%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 4
 - Average duration: 6min
-- Total execution time: 0.3 hours
+- Total execution time: 0.4 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 2 | 3 | 17min | 6min |
+| 4 | 1 | 5min | 5min |
 
 **Recent Trend:**
-- Last 5 plans: 7min, 5min, 5min
+- Last 5 plans: 7min, 5min, 5min, 5min
 - Trend: stable
 
 *Updated after each plan completion*
@@ -51,6 +52,8 @@ Recent decisions affecting current work:
 - [02-02]: Adaptive strategy: single call <50K tokens, multi-window >=50K tokens
 - [02-03]: Single-project optimization: skip merge API call when only one project
 - [02-03]: Renderer is pure function: JSON is truth, Markdown is derived
+- [04-05]: Dialog uses custom implementation (portal-free) for simplicity
+- [04-05]: pnpm-workspace.yaml allowBuilds required for non-interactive build
 
 ### Pending Todos
 
@@ -69,6 +72,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-27
-Stopped at: Phase 4 planned — ready to execute
-Resume file: .planning/phases/04-web-ui/04-01-PLAN.md
+Last session: 2026-05-29
+Stopped at: Phase 4 complete — ready for Phase 5
+Resume file: .planning/ROADMAP.md (Phase 5 planning)
