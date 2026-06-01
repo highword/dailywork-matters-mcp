@@ -1,9 +1,6 @@
 import pino from 'pino';
 
-export const logger = pino({
-	level: process.env.LOG_LEVEL || 'info',
-	transport: {
-		target: 'pino/file',
-		options: { destination: 2 }, // fd 2 = stderr
-	},
-});
+export const logger = pino(
+	{ level: process.env.LOG_LEVEL || 'info' },
+	pino.destination({ dest: 2, sync: true })
+);

@@ -4,6 +4,7 @@ import { serveStatic } from '@hono/node-server/serve-static';
 import { Hono } from 'hono';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { ClaudeAdapter } from './adapters/claude/claude.adapter.js';
 import { GitAdapter } from './adapters/git/git.adapter.js';
 import { AdapterRegistry } from './adapters/registry.js';
@@ -42,11 +43,13 @@ async function main() {
 	app.route('/api', apiApp);
 
 	// Serve static UI assets (production mode only — when dist/ui exists)
-	const uiDistPath = path.resolve(process.cwd(), 'dist/ui');
+	// Resolve relative to this script's location (works via npx from any cwd)
+	const __dirname = path.dirname(fileURLToPath(import.meta.url));
+	const uiDistPath = path.resolve(__dirname, 'ui');
 	const uiDistExists = fs.existsSync(path.join(uiDistPath, 'index.html'));
 
 	if (uiDistExists) {
-		app.use('/*', serveStatic({ root: './dist/ui' }));
+		app.use('/*', serveStatic({ root: uiDistPath }));
 
 		// SPA fallback: non-API routes that didn't match a static file -> index.html
 		app.get('*', (c) => {
