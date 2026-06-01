@@ -104,10 +104,14 @@ Plans:
 **Depends on**: Phase 3, Phase 4
 **Requirements**: OPS-02
 **Success Criteria** (what must be TRUE):
-  1. `npx dailywork-matters-mcp` installs and starts successfully on Windows, macOS, and Linux without requiring manual setup
+  1. `npx dailywork-matters` installs and starts successfully on Windows, macOS, and Linux without requiring manual setup
   2. Configuring a schedule time triggers automatic daily summary generation at the specified time without user interaction
   3. The npm package contains only the bundled dist/server.mjs, dist/ui/ static assets, and declares better-sqlite3 as its sole runtime dependency
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 05-01-PLAN.md — NPX packaging: pino fix, static path fix, package.json restructure
+- [ ] 05-02-PLAN.md — In-process scheduler with startup catch-up
+- [ ] 05-03-PLAN.md — GitHub Actions CI matrix + publish workflow
 
 ## Progress
 
@@ -122,4 +126,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 4.1 -> 5
 | 3. MCP Transport + Persistence | 3/3 | Complete | 2026-05-20 |
 | 4. Web UI + HTTP API | 5/5 | Complete | 2026-05-29 |
 | 4.1 Zero-Config UI Hint | 1/1 | Complete | 2026-06-01 |
-| 5. Distribution + Operations | 0/? | Not started | - |
+| 5. Distribution + Operations | 0/3 | In progress | - |
