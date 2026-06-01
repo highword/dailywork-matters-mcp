@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Intelligence** - Cross-session aggregation, dual AI mode, structured task output *(completed 2026-05-20)*
 - [x] **Phase 3: MCP Transport + Persistence** - 5 MCP tools, Markdown output, summary storage *(completed 2026-05-20)*
 - [x] **Phase 4: Web UI + HTTP API** - React SPA with 4 pages, charts, REST API *(completed 2026-05-29)*
-- [ ] **Phase 4.1: Zero-Config UI Hint** - Generate page shows friendly prompt when no API key configured (INSERTED)
+- [x] **Phase 4.1: Zero-Config UI Hint** - Generate page shows friendly prompt when no API key configured (INSERTED) *(completed 2026-06-01)*
 - [ ] **Phase 5: Distribution + Operations** - npx packaging, scheduler, cross-platform validation
 
 ## Phase Details
@@ -97,7 +97,7 @@ Plans:
   3. The prompt does not block usage — user can still trigger generation (which returns raw event data to MCP host)
 **Plans**: 1 plan
 Plans:
-- [ ] 04.1-01-PLAN.md — API key detection modal on Generate page
+- [x] 04.1-01-PLAN.md — API key detection modal on Generate page
 
 ### Phase 5: Distribution + Operations
 **Goal**: The tool is installable via npx on all platforms and runs scheduled daily generation without manual intervention
@@ -121,5 +121,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 4.1 -> 5
 | 2. Intelligence | 3/3 | Complete | 2026-05-20 |
 | 3. MCP Transport + Persistence | 3/3 | Complete | 2026-05-20 |
 | 4. Web UI + HTTP API | 5/5 | Complete | 2026-05-29 |
-| 4.1 Zero-Config UI Hint | 0/1 | Not started | - |
+| 4.1 Zero-Config UI Hint | 1/1 | Complete | 2026-06-01 |
 | 5. Distribution + Operations | 0/? | Not started | - |
