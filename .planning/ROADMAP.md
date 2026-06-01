@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 3: MCP Transport + Persistence** - 5 MCP tools, Markdown output, summary storage *(completed 2026-05-20)*
 - [x] **Phase 4: Web UI + HTTP API** - React SPA with 4 pages, charts, REST API *(completed 2026-05-29)*
 - [x] **Phase 4.1: Zero-Config UI Hint** - Generate page shows friendly prompt when no API key configured (INSERTED) *(completed 2026-06-01)*
-- [ ] **Phase 5: Distribution + Operations** - npx packaging, scheduler, cross-platform validation
+- [x] **Phase 5: Distribution + Operations** - npx packaging, scheduler, cross-platform validation *(completed 2026-06-01)*
 
 ## Phase Details
 
@@ -109,9 +109,9 @@ Plans:
   3. The npm package contains only the bundled dist/server.mjs, dist/ui/ static assets, and declares better-sqlite3 as its sole runtime dependency
 **Plans**: 3 plans
 Plans:
-- [ ] 05-01-PLAN.md — NPX packaging: pino fix, static path fix, package.json restructure
-- [ ] 05-02-PLAN.md — In-process scheduler with startup catch-up
-- [ ] 05-03-PLAN.md — GitHub Actions CI matrix + publish workflow
+- [x] 05-01-PLAN.md — NPX packaging: pino fix, static path fix, package.json restructure
+- [x] 05-02-PLAN.md — In-process scheduler with startup catch-up
+- [x] 05-03-PLAN.md — GitHub Actions CI matrix + publish workflow
 
 ## Progress
 
@@ -126,4 +126,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 4.1 -> 5
 | 3. MCP Transport + Persistence | 3/3 | Complete | 2026-05-20 |
 | 4. Web UI + HTTP API | 5/5 | Complete | 2026-05-29 |
 | 4.1 Zero-Config UI Hint | 1/1 | Complete | 2026-06-01 |
-| 5. Distribution + Operations | 0/3 | In progress | - |
+| 5. Distribution + Operations | 3/3 | Complete | 2026-06-01 |
