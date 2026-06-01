@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-05-18)
 ## Current Position
 
 Phase: 5 of 5 (Distribution + Operations)
-Plan: 0 of ? in current phase
-Status: Ready to discuss
-Last activity: 2026-06-01 — Phase 4.1 completed (zero-config UI hint)
+Plan: 0 of 3 in current phase
+Status: Ready to execute
+Last activity: 2026-06-01 — Phase 5 planned (3 plans, 2 waves)
 
 Progress: [█████████░] 90%
 
@@ -73,5 +73,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-01
-Stopped at: Phase 5 context gathered — ready for planning
-Resume file: .planning/phases/05-distribution/05-CONTEXT.md
+Stopped at: Phase 5 planned — ready for execution
+Resume file: .planning/phases/05-distribution/05-01-PLAN.md
