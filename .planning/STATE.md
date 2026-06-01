@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-05-18)
 
 **Core value:** Developers get a single, intelligent daily report showing WHAT they accomplished — zero manual effort required.
-**Current focus:** Phase 5: Distribution + Operations
+**Current focus:** Phase 4.1: Zero-Config UI Hint
 
 ## Current Position
 
-Phase: 5 of 5 (Distribution + Operations)
+Phase: 4.1 of 5 (Zero-Config UI Hint)
 Plan: 0 of ? in current phase
 Status: Ready to discuss
-Last activity: 2026-06-01 — Phase 4.1 cancelled, scope folded into Phase 5
+Last activity: 2026-06-01 — Phase 4.1 re-scoped as UI hint only
 
-Progress: [█████████░] 90%
+Progress: [█████████░] 85%
 
 ## Performance Metrics
 
@@ -73,5 +73,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-01
-Stopped at: Phase 4.1 cancelled, Phase 5 ready to discuss/plan
-Resume file: .planning/ROADMAP.md (Phase 5)
+Stopped at: Phase 4.1 re-scoped — zero-config UI hint, ready to discuss
+Resume file: .planning/ROADMAP.md (Phase 4.1)
