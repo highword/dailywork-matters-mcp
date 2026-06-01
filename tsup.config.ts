@@ -12,11 +12,17 @@ export default defineConfig({
   sourcemap: true,
   clean: false,
   shims: true,
-  external: ['better-sqlite3', 'pino', 'simple-git', '@anthropic-ai/sdk'],
-  banner: { js: '#!/usr/bin/env node' },
+  external: ['better-sqlite3'],
+  banner: {
+    js: '#!/usr/bin/env node\nimport { createRequire } from "module";\nconst require = createRequire(import.meta.url);',
+  },
   noExternal: [
     '@modelcontextprotocol/sdk',
     'hono',
     '@hono/node-server',
+    'pino',
+    'simple-git',
+    '@anthropic-ai/sdk',
+    'zod',
   ],
 });
