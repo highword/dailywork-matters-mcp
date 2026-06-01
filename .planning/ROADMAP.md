@@ -15,7 +15,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Foundation** - Project scaffold, streaming parsers, SQLite storage, adapter pattern *(completed 2026-05-19)*
 - [x] **Phase 2: Intelligence** - Cross-session aggregation, dual AI mode, structured task output *(completed 2026-05-20)*
 - [x] **Phase 3: MCP Transport + Persistence** - 5 MCP tools, Markdown output, summary storage *(completed 2026-05-20)*
-- [ ] **Phase 4: Web UI + HTTP API** - React SPA with 4 pages, charts, REST API
+- [x] **Phase 4: Web UI + HTTP API** - React SPA with 4 pages, charts, REST API *(completed 2026-05-29)*
+- [ ] **Phase 4.1: Zero-Config Persistence** - Raw task rendering without API key (INSERTED)
 - [ ] **Phase 5: Distribution + Operations** - npx packaging, scheduler, cross-platform validation
 
 ## Phase Details
@@ -86,6 +87,17 @@ Plans:
 - [x] 04-05-PLAN.md — Settings page + production build integration + human verification
 **UI hint**: yes
 
+### Phase 4.1: Zero-Config Persistence + Raw Task Rendering (INSERTED)
+**Goal**: Zero-config mode (no API key) persists structured task data and the Web UI renders it as a raw task table with a clear visual indicator that it is unprocessed data — not an AI summary
+**Depends on**: Phase 4
+**Requirements**: DLVR-03
+**Success Criteria** (what must be TRUE):
+  1. Generating a summary without API key persists structured_json to disk (same path convention as AI summaries)
+  2. Summaries list shows the date with a distinct "Raw Data" badge (visually differentiated from AI-summarized entries)
+  3. Summary detail view renders raw tasks as a structured table (task name, category, files, time proportion) instead of Markdown prose
+  4. Charts page can aggregate data from both raw and AI-summarized entries
+**Plans**: TBD
+
 ### Phase 5: Distribution + Operations
 **Goal**: The tool is installable via npx on all platforms and runs scheduled daily generation without manual intervention
 **Depends on**: Phase 3, Phase 4
@@ -99,7 +111,7 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 4.1 -> 5
 (Phases 3 and 4 are partially parallelizable once the service layer is stable)
 
 | Phase | Plans Complete | Status | Completed |
@@ -108,4 +120,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Intelligence | 3/3 | Complete | 2026-05-20 |
 | 3. MCP Transport + Persistence | 3/3 | Complete | 2026-05-20 |
 | 4. Web UI + HTTP API | 5/5 | Complete | 2026-05-29 |
+| 4.1 Zero-Config Persistence | 0/? | Not started | - |
 | 5. Distribution + Operations | 0/? | Not started | - |

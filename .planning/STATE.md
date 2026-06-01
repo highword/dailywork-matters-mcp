@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-05-18)
 
 **Core value:** Developers get a single, intelligent daily report showing WHAT they accomplished — zero manual effort required.
-**Current focus:** Phase 4: Web UI + HTTP API
+**Current focus:** Phase 4.1: Zero-Config Persistence
 
 ## Current Position
 
-Phase: 4 of 5 (Web UI + HTTP API)
-Plan: 5 of 5 in current phase (COMPLETE)
-Status: Phase 4 complete — all 5 plans executed
-Last activity: 2026-05-29 — Settings page + production build integration complete
+Phase: 4.1 of 5 (Zero-Config Persistence)
+Plan: 0 of ? in current phase
+Status: Ready to discuss
+Last activity: 2026-06-01 — Phase 4.1 inserted (zero-config raw task rendering)
 
 Progress: [████████░░] 80%
 
@@ -72,6 +72,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-29
-Stopped at: Phase 4 complete — ready for Phase 5
-Resume file: .planning/ROADMAP.md (Phase 5 planning)
+Last session: 2026-06-01
+Stopped at: Phase 4.1 created — ready to discuss/plan
+Resume file: .planning/ROADMAP.md (Phase 4.1)
