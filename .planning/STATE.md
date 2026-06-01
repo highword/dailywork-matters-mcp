@@ -73,5 +73,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-06-01
-Stopped at: Phase 4.1 completed — zero-config UI hint modal shipped, ready for Phase 5
-Resume file: .planning/ROADMAP.md (Phase 5)
+Stopped at: Phase 5 context gathered — ready for planning
+Resume file: .planning/phases/05-distribution/05-CONTEXT.md
