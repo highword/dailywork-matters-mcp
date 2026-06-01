@@ -95,7 +95,9 @@ Plans:
   1. Generate page detects zero-config mode (no API key configured) and displays a user-friendly message before the user clicks generate
   2. The message clearly explains that AI summary requires an API key and guides the user to Settings
   3. The prompt does not block usage — user can still trigger generation (which returns raw event data to MCP host)
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 04.1-01-PLAN.md — API key detection modal on Generate page
 
 ### Phase 5: Distribution + Operations
 **Goal**: The tool is installable via npx on all platforms and runs scheduled daily generation without manual intervention
@@ -119,5 +121,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 4.1 -> 5
 | 2. Intelligence | 3/3 | Complete | 2026-05-20 |
 | 3. MCP Transport + Persistence | 3/3 | Complete | 2026-05-20 |
 | 4. Web UI + HTTP API | 5/5 | Complete | 2026-05-29 |
-| 4.1 Zero-Config UI Hint | 0/? | Not started | - |
+| 4.1 Zero-Config UI Hint | 0/1 | Not started | - |
 | 5. Distribution + Operations | 0/? | Not started | - |
