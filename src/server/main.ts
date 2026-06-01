@@ -13,6 +13,7 @@ import { loadConfig, resolveConfigPaths } from './config.js';
 import { closeDatabase, initDatabase } from './database.js';
 import { logger } from './logger.js';
 import { createMcpServer, registerAll } from './mcp/index.js';
+import { runCatchUp, startScheduler } from './scheduler.js';
 
 async function main() {
 	const config = resolveConfigPaths(loadConfig());
@@ -66,9 +67,21 @@ async function main() {
 	const httpServer = serve({ fetch: app.fetch, port: config.httpPort });
 	logger.info({ port: config.httpPort }, 'HTTP server started');
 
+	// Scheduler: --no-schedule flag provides MCP-only mode without scheduler overhead
+	const noSchedule = process.argv.includes('--no-schedule');
+
+	// Run startup catch-up (generates missing days since last summary)
+	if (!noSchedule) {
+		await runCatchUp(config, registry);
+	}
+
+	// Start daily scheduler (fires at config.scheduleTime)
+	const schedulerHandle = noSchedule ? null : startScheduler(config, registry);
+
 	// Graceful shutdown
 	const shutdown = async () => {
 		logger.info('Shutting down...');
+		if (schedulerHandle) schedulerHandle.stop();
 		await mcpServer.close();
 		httpServer.close();
 		closeDatabase();
