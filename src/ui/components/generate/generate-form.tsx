@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { format } from 'date-fns';
-import { CalendarIcon, Loader2 } from 'lucide-react';
+import { CalendarIcon, KeyRound, Loader2 } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Calendar } from '../ui/calendar';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '../ui/dialog';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+import { useConfig } from '../../hooks/use-config';
 import { cn } from '../../lib/utils';
 
 interface GenerateFormProps {
@@ -13,8 +16,16 @@ interface GenerateFormProps {
 
 export function GenerateForm({ onGenerate, isGenerating }: GenerateFormProps) {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [showApiKeyDialog, setShowApiKeyDialog] = useState(false);
+  const { data: config } = useConfig();
+  const navigate = useNavigate();
 
   const handleGenerate = () => {
+    if (!config) return;
+    if (!config.ai?.apiKey) {
+      setShowApiKeyDialog(true);
+      return;
+    }
     const dateStr = format(selectedDate, 'yyyy-MM-dd');
     onGenerate(dateStr);
   };
@@ -64,6 +75,28 @@ export function GenerateForm({ onGenerate, isGenerating }: GenerateFormProps) {
           'Generate Summary'
         )}
       </Button>
+
+      <Dialog open={showApiKeyDialog} onOpenChange={setShowApiKeyDialog}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <KeyRound className="h-5 w-5" />
+              API Key Required
+            </DialogTitle>
+            <DialogDescription>
+              An API key is needed to generate AI-powered summaries. Configure one in Settings to get started.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setShowApiKeyDialog(false)}>
+              Close
+            </Button>
+            <Button onClick={() => navigate('/settings')}>
+              Go to Settings
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
