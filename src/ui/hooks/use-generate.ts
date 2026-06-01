@@ -45,6 +45,7 @@ export function useGenerateSummary() {
 
       const decoder = new TextDecoder();
       let buffer = '';
+      let currentEvent = '';
 
       while (true) {
         const { done, value } = await reader.read();
@@ -55,17 +56,22 @@ export function useGenerateSummary() {
         buffer = lines.pop() ?? '';
 
         for (const line of lines) {
-          if (line.startsWith('data: ')) {
+          if (line.startsWith('event: ')) {
+            currentEvent = line.slice(7).trim();
+          } else if (line.startsWith('data: ')) {
             try {
               const data = JSON.parse(line.slice(6));
-              if (data.stage === 'complete' || data.summary) {
+              if (currentEvent === 'complete' || data.stage === 'complete' || data.summary) {
                 setResult({ date, summary: data.summary ?? data });
+              } else if (currentEvent === 'error') {
+                setError(data.message ?? 'Generation failed');
               } else {
                 setProgress((prev) => [...prev, data]);
               }
             } catch {
               // Skip malformed SSE lines
             }
+            currentEvent = '';
           }
         }
       }
