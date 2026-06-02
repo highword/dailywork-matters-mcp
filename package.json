@@ -1,6 +1,7 @@
 {
   "name": "dailywork-matters",
   "version": "1.0.0",
+  "packageManager": "pnpm@11.5.0",
   "type": "module",
   "bin": {
     "dailywork-matters": "./dist/server.mjs"
