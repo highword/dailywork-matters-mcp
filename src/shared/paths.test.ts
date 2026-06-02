@@ -14,7 +14,7 @@ describe('resolveHome', () => {
 		expect(result).toBe(os.homedir());
 	});
 
-	it('resolves ~\\ on Windows-style paths', () => {
+	it.skipIf(process.platform !== 'win32')('resolves ~\\ on Windows-style paths', () => {
 		const result = resolveHome('~\\test\\dir');
 		expect(result).toBe(path.join(os.homedir(), 'test', 'dir'));
 	});
