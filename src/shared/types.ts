@@ -51,6 +51,7 @@ export interface Config {
 	// AI (D-07: layered model selection)
 	ai: {
 		apiKey: string | null;
+		baseUrl: string | null;
 		windowModel: string; // default: claude-haiku-4-5-20251001
 		mergeModel: string; // default: claude-sonnet-4-6-20250514
 	};
@@ -80,6 +81,7 @@ export const DEFAULT_CONFIG: Config = {
 	gitIdentities: [],
 	ai: {
 		apiKey: null,
+		baseUrl: null,
 		windowModel: 'claude-haiku-4-5-20251001',
 		mergeModel: 'claude-sonnet-4-6-20250514',
 	},

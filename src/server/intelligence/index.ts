@@ -50,7 +50,7 @@ export async function generateSummary(
 		'Generating AI summary',
 	);
 
-	const client = new AIClient(config.ai.apiKey!);
+	const client = new AIClient(config.ai.apiKey!, config.ai.baseUrl);
 	const projectGroups = groupByProject(events);
 
 	const projectResults: Array<{

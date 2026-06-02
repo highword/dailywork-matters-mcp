@@ -94,12 +94,12 @@ export function registerConfigureSettings(
 				// Handle nested ai.* keys
 				if (args.key.startsWith('ai.')) {
 					const aiKey = args.key.slice(3);
-					if (!['apiKey', 'windowModel', 'mergeModel'].includes(aiKey)) {
+					if (!['apiKey', 'baseUrl', 'windowModel', 'mergeModel'].includes(aiKey)) {
 						return {
 							content: [
 								{
 									type: 'text' as const,
-									text: `Error: Unknown AI configuration key "${args.key}". Valid keys: ai.apiKey, ai.windowModel, ai.mergeModel`,
+									text: `Error: Unknown AI configuration key "${args.key}". Valid keys: ai.apiKey, ai.baseUrl, ai.windowModel, ai.mergeModel`,
 								},
 							],
 							isError: true,
@@ -129,7 +129,7 @@ export function registerConfigureSettings(
 						content: [
 							{
 								type: 'text' as const,
-								text: `Error: Unknown or read-only configuration key "${args.key}". Valid keys: ${[...ALLOWED_KEYS].join(', ')}, ai.apiKey, ai.windowModel, ai.mergeModel`,
+								text: `Error: Unknown or read-only configuration key "${args.key}". Valid keys: ${[...ALLOWED_KEYS].join(', ')}, ai.apiKey, ai.baseUrl, ai.windowModel, ai.mergeModel`,
 							},
 						],
 						isError: true,

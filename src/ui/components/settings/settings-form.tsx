@@ -24,6 +24,7 @@ interface FormConfig {
   gitIdentities: string[];
   ai: {
     apiKey: string | null;
+    baseUrl: string | null;
     windowModel: string;
     mergeModel: string;
   };
@@ -45,6 +46,7 @@ const DEFAULT_CONFIG: FormConfig = {
   gitIdentities: [],
   ai: {
     apiKey: null,
+    baseUrl: null,
     windowModel: 'claude-haiku-4-5-20251001',
     mergeModel: 'claude-sonnet-4-6-20250514',
   },
@@ -160,6 +162,25 @@ export function SettingsForm() {
                 {showApiKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
             </div>
+          </div>
+          <div className="space-y-1.5">
+            <Label htmlFor="base-url">Base URL</Label>
+            <Input
+              id="base-url"
+              type="text"
+              value={formState.ai.baseUrl ?? ''}
+              onChange={(e) =>
+                setFormState((s) => ({
+                  ...s,
+                  ai: { ...s.ai, baseUrl: e.target.value || null },
+                }))
+              }
+              placeholder="https://api.anthropic.com (default)"
+              className="font-mono text-sm"
+            />
+            <p className="text-xs text-muted-foreground">
+              Optional. Custom endpoint for proxies or compatible APIs.
+            </p>
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="window-model">Window Model</Label>

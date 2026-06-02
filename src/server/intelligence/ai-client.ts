@@ -16,14 +16,19 @@ export interface AICallResult {
 export class AIClient {
 	private client: Anthropic | null = null;
 	private apiKey: string;
+	private baseUrl: string | null;
 
-	constructor(apiKey: string) {
+	constructor(apiKey: string, baseUrl?: string | null) {
 		this.apiKey = apiKey;
+		this.baseUrl = baseUrl ?? null;
 	}
 
 	private getClient(): Anthropic {
 		if (!this.client) {
-			this.client = new Anthropic({ apiKey: this.apiKey });
+			this.client = new Anthropic({
+				apiKey: this.apiKey,
+				...(this.baseUrl && { baseURL: this.baseUrl }),
+			});
 		}
 		return this.client;
 	}
