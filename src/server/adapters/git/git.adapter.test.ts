@@ -16,10 +16,11 @@ async function setupTestRepo() {
 	await git.addConfig('user.email', 'dev@example.com');
 	await git.addConfig('user.name', 'Test Developer');
 
-	// Create a commit with a known date
+	// Create a commit with a known date (set both author and committer date)
 	const testFile = path.join(REPO_DIR, 'test.ts');
 	fs.writeFileSync(testFile, 'console.log("hello");');
 	await git.add('test.ts');
+	await git.env('GIT_COMMITTER_DATE', '2026-05-19T10:00:00');
 	await git.commit('feat: add test file', { '--date': '2026-05-19T10:00:00' });
 }
 

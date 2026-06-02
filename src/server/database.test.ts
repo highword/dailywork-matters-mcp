@@ -66,9 +66,10 @@ describe('database', () => {
 			id: number;
 			name: string;
 		}>;
-		expect(migrations).toHaveLength(1);
-		expect(migrations[0].id).toBe(1);
+		expect(migrations).toHaveLength(3);
 		expect(migrations[0].name).toBe('initial-schema');
+		expect(migrations[1].name).toBe('intelligence-metadata');
+		expect(migrations[2].name).toBe('version-tracking');
 	});
 
 	it('does not re-run already applied migrations', () => {
@@ -77,7 +78,7 @@ describe('database', () => {
 		// Re-init should not throw or duplicate
 		const db = initDatabase(TEST_DB_PATH);
 		const migrations = db.prepare('SELECT id, name FROM migrations').all();
-		expect(migrations).toHaveLength(1);
+		expect(migrations).toHaveLength(3);
 	});
 
 	it('getDatabase throws when not initialized', () => {
