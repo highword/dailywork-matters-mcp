@@ -21,11 +21,10 @@ interface HoursRadialProps {
   to: string;
 }
 
-function parseHour(createdAt: string): number {
-  // Try ISO format or time-only
+function parseHour(createdAt: string | undefined | null): number {
+  if (!createdAt) return -1;
   const match = createdAt.match(/(\d{2}):\d{2}/);
   if (match) return parseInt(match[1], 10);
-  // Try parsing as full date
   const d = new Date(createdAt);
   if (!isNaN(d.getTime())) return d.getHours();
   return -1;
