@@ -2,13 +2,20 @@
   "name": "dailywork-matters",
   "version": "1.0.0",
   "description": "AI-powered daily work journal — aggregates Claude Code sessions and Git history into intelligent, outcome-oriented summaries. MCP Server + Web UI.",
-  "keywords": ["mcp", "claude", "daily-summary", "developer-tools", "ai", "productivity"],
+  "keywords": [
+    "mcp",
+    "claude",
+    "daily-summary",
+    "developer-tools",
+    "ai",
+    "productivity"
+  ],
   "author": "highword",
   "license": "MIT",
   "homepage": "https://github.com/highword/dailywork-matters-mcp#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/highword/dailywork-matters-mcp.git"
+    "url": "git+https://github.com/highword/dailywork-matters-mcp.git"
   },
   "bugs": {
     "url": "https://github.com/highword/dailywork-matters-mcp/issues"
@@ -19,7 +26,7 @@
   "packageManager": "pnpm@11.5.0",
   "type": "module",
   "bin": {
-    "dailywork-matters": "./dist/server.mjs"
+    "dailywork-matters": "dist/server.mjs"
   },
   "main": "./dist/server.mjs",
   "files": [
