@@ -46,7 +46,11 @@ export function loadConfig(): Config {
 		}
 
 		// Merge: user overrides take precedence, defaults fill missing fields
-		return { ...DEFAULT_CONFIG, ...userConfig };
+		return {
+			...DEFAULT_CONFIG,
+			...userConfig,
+			ai: { ...DEFAULT_CONFIG.ai, ...(userConfig.ai ?? {}) },
+		};
 	} catch (err) {
 		logger.warn({ err, path: configPath }, 'Failed to parse config, using defaults');
 		return { ...DEFAULT_CONFIG };
@@ -59,7 +63,11 @@ export function loadConfig(): Config {
  */
 export function saveConfig(updates: Partial<Config>): Config {
 	const current = loadConfig();
-	const merged = { ...current, ...updates };
+	const merged: Config = {
+		...current,
+		...updates,
+		ai: { ...current.ai, ...(updates.ai ?? {}) },
+	};
 	const configPath = getConfigPath();
 	fs.writeFileSync(configPath, JSON.stringify(merged, null, 2), 'utf-8');
 	return merged;

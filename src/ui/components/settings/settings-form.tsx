@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { toast } from 'sonner';
 import { useConfig, useUpdateConfig } from '../../hooks/use-config';
+import { useModels, useRefreshModels } from '../../hooks/use-models';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
@@ -13,7 +14,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from '../ui/dialog';
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, RefreshCw } from 'lucide-react';
 
 interface FormConfig {
   outputDir: string;
@@ -75,6 +76,8 @@ function deepEqual(a: unknown, b: unknown): boolean {
 export function SettingsForm() {
   const { data, isLoading } = useConfig();
   const updateConfig = useUpdateConfig();
+  const { data: modelsData, isFetching: modelsFetching, isLoading: modelsLoading } = useModels();
+  const refreshModels = useRefreshModels();
   const [formState, setFormState] = useState<FormConfig>(DEFAULT_CONFIG);
   const [showApiKey, setShowApiKey] = useState(false);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
@@ -134,9 +137,21 @@ export function SettingsForm() {
     <div className="space-y-8">
       {/* AI Configuration */}
       <section className="space-y-4">
-        <h2 className="text-base font-semibold border-b border-border pb-2">
-          AI Configuration
-        </h2>
+        <div className="flex items-center justify-between border-b border-border pb-2">
+          <h2 className="text-base font-semibold">
+            AI Configuration
+          </h2>
+          <button
+            type="button"
+            className="p-1 text-muted-foreground hover:text-foreground transition-colors disabled:opacity-50"
+            onClick={refreshModels}
+            disabled={modelsFetching}
+            aria-label="Refresh models list"
+            title="Refresh models list"
+          >
+            <RefreshCw className={`h-4 w-4 ${modelsFetching ? 'animate-spin' : ''}`} />
+          </button>
+        </div>
         <div className="space-y-3">
           <div className="space-y-1.5">
             <Label htmlFor="api-key">API Key</Label>
@@ -184,29 +199,77 @@ export function SettingsForm() {
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="window-model">Window Model</Label>
-            <Input
-              id="window-model"
-              value={formState.ai.windowModel}
-              onChange={(e) =>
-                setFormState((s) => ({
-                  ...s,
-                  ai: { ...s.ai, windowModel: e.target.value },
-                }))
-              }
-            />
+            {modelsLoading ? (
+              <Select id="window-model" disabled>
+                <option>Loading models...</option>
+              </Select>
+            ) : modelsData?.models && modelsData.models.length > 0 ? (
+              <Select
+                id="window-model"
+                value={formState.ai.windowModel}
+                onChange={(e) =>
+                  setFormState((s) => ({
+                    ...s,
+                    ai: { ...s.ai, windowModel: e.target.value },
+                  }))
+                }
+              >
+                {modelsData.models.map((m) => (
+                  <option key={m.id} value={m.id}>{m.displayName}</option>
+                ))}
+                {!modelsData.models.some((m) => m.id === formState.ai.windowModel) && formState.ai.windowModel && (
+                  <option value={formState.ai.windowModel}>{formState.ai.windowModel} (current)</option>
+                )}
+              </Select>
+            ) : (
+              <Input
+                id="window-model"
+                value={formState.ai.windowModel}
+                onChange={(e) =>
+                  setFormState((s) => ({
+                    ...s,
+                    ai: { ...s.ai, windowModel: e.target.value },
+                  }))
+                }
+              />
+            )}
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="merge-model">Merge Model</Label>
-            <Input
-              id="merge-model"
-              value={formState.ai.mergeModel}
-              onChange={(e) =>
-                setFormState((s) => ({
-                  ...s,
-                  ai: { ...s.ai, mergeModel: e.target.value },
-                }))
-              }
-            />
+            {modelsLoading ? (
+              <Select id="merge-model" disabled>
+                <option>Loading models...</option>
+              </Select>
+            ) : modelsData?.models && modelsData.models.length > 0 ? (
+              <Select
+                id="merge-model"
+                value={formState.ai.mergeModel}
+                onChange={(e) =>
+                  setFormState((s) => ({
+                    ...s,
+                    ai: { ...s.ai, mergeModel: e.target.value },
+                  }))
+                }
+              >
+                {modelsData.models.map((m) => (
+                  <option key={m.id} value={m.id}>{m.displayName}</option>
+                ))}
+                {!modelsData.models.some((m) => m.id === formState.ai.mergeModel) && formState.ai.mergeModel && (
+                  <option value={formState.ai.mergeModel}>{formState.ai.mergeModel} (current)</option>
+                )}
+              </Select>
+            ) : (
+              <Input
+                id="merge-model"
+                value={formState.ai.mergeModel}
+                onChange={(e) =>
+                  setFormState((s) => ({
+                    ...s,
+                    ai: { ...s.ai, mergeModel: e.target.value },
+                  }))
+                }
+              />
+            )}
           </div>
         </div>
       </section>

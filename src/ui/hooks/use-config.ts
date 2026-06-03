@@ -10,6 +10,7 @@ interface Config {
   gitIdentities: string[];
   ai: {
     apiKey: string | null;
+    baseUrl: string | null;
     windowModel: string;
     mergeModel: string;
   };
@@ -25,19 +26,24 @@ interface Config {
 export function useConfig() {
   return useQuery({
     queryKey: ['config'],
-    queryFn: () => apiFetch<Config>('/api/config'),
+    queryFn: async () => {
+      const res = await apiFetch<{ config: Config }>('/api/config');
+      return res.config;
+    },
   });
 }
 
 export function useUpdateConfig() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (config: Partial<Config>) =>
-      apiFetch<Config>('/api/config', {
+    mutationFn: async (config: Partial<Config>) => {
+      const res = await apiFetch<{ config: Config }>('/api/config', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(config),
-      }),
+      });
+      return res.config;
+    },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['config'] });
     },

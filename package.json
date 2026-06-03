@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "dev": "tsx src/server/main.ts",
+    "dev:http": "tsx src/server/main.ts --http-only --no-schedule",
     "dev:ui": "vite",
     "build": "vite build && tsup",
     "build:ui": "vite build",

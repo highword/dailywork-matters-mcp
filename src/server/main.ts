@@ -30,10 +30,15 @@ async function main() {
 	const mcpServer = createMcpServer();
 	registerAll(mcpServer, config, registry);
 
-	// Connect stdio transport
-	const transport = new StdioServerTransport();
-	await mcpServer.connect(transport);
-	logger.info('MCP server connected via stdio');
+	// Connect stdio transport (skip in http-only mode for standalone testing)
+	const httpOnly = process.argv.includes('--http-only');
+	if (!httpOnly) {
+		const transport = new StdioServerTransport();
+		await mcpServer.connect(transport);
+		logger.info('MCP server connected via stdio');
+	} else {
+		logger.info('Running in HTTP-only mode (no MCP stdio transport)');
+	}
 
 	// Start HTTP server with API routes + static serving
 	const app = new Hono();
@@ -46,7 +51,11 @@ async function main() {
 	// Serve static UI assets (production mode only — when dist/ui exists)
 	// Resolve relative to this script's location (works via npx from any cwd)
 	const __dirname = path.dirname(fileURLToPath(import.meta.url));
-	const uiDistPath = path.resolve(__dirname, 'ui');
+	let uiDistPath = path.resolve(__dirname, 'ui');
+	if (!fs.existsSync(path.join(uiDistPath, 'index.html'))) {
+		// Dev fallback: tsx runs from src/server/, try project root dist/ui
+		uiDistPath = path.resolve(process.cwd(), 'dist', 'ui');
+	}
 	const uiDistExists = fs.existsSync(path.join(uiDistPath, 'index.html'));
 
 	if (uiDistExists) {

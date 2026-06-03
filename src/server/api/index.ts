@@ -5,6 +5,7 @@ import { summariesRoutes } from './summaries.js';
 import { createGenerateRoutes } from './generate.js';
 import { statsRoutes } from './stats.js';
 import { configRoutes } from './config.js';
+import { modelsRoutes } from './models.js';
 
 /**
  * Creates the full API sub-app with all routes assembled.
@@ -20,6 +21,7 @@ export function createApiApp(config: Config, registry: AdapterRegistry): Hono {
 	apiApp.route('/summaries', generateRoutes);
 	apiApp.route('/stats', statsRoutes);
 	apiApp.route('/config', configRoutes);
+	apiApp.route('/models', modelsRoutes);
 
 	return apiApp;
 }
