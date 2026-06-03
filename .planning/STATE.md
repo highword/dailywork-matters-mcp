@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-05-18)
 
 **Core value:** Developers get a single, intelligent daily report showing WHAT they accomplished — zero manual effort required.
-**Current focus:** All phases complete — v1.0 MVP delivered
+**Current focus:** v1.0 code-complete, pending publish. Post-MVP features in backlog.
 
 ## Current Position
 
 Phase: 5 of 5 (Distribution + Operations) — COMPLETE
 Plan: 3 of 3 in current phase
 Status: All phases complete
-Last activity: 2026-06-01 — Phase 5 executed (3 plans, 2 waves)
+Last activity: 2026-06-03 — Dynamic model fetching + baseUrl support added
 
 Progress: [██████████] 100%
 
@@ -57,7 +57,13 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-None yet.
+6 items in backlog (.planning/todos/pending/):
+- [high] UI visual redesign
+- [medium] UI shutdown button
+- [medium] Generate execution time display
+- [medium] Cross-day task continuity
+- [medium] Summaries UX (tooltips, field descriptions, path display)
+- [medium] Auto-start HTTP config
 
 ### Blockers/Concerns
 
@@ -72,6 +78,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-06-01
-Stopped at: All phases complete — v1.0 MVP delivered
-Resume file: N/A (milestone complete)
+Last session: 2026-06-03
+Stopped at: v1.0 code-complete, added dynamic model fetching + baseUrl support (uncommitted)
+Resume file: N/A
