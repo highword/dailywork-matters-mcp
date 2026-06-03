@@ -1,6 +1,6 @@
 // @ts-nocheck — react-grid-layout v2 types incomplete for JSX props (draggableHandle, isResizable, etc.)
 import { useMemo, useCallback } from 'react';
-import { ResponsiveGridLayout } from 'react-grid-layout';
+import { ResponsiveGridLayout, useContainerWidth } from 'react-grid-layout';
 import type { LayoutItem, ResponsiveLayouts, Layout } from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import { ChartCard } from './chart-card';
@@ -93,6 +93,8 @@ function getChartComponent(key: string, from: string, to: string) {
 }
 
 export function ChartDashboard({ from, to, resetKey }: ChartDashboardProps) {
+  const { containerRef, width } = useContainerWidth({ initialWidth: 1200 });
+
   const layouts = useMemo(() => {
     if (resetKey > 0) return DEFAULT_LAYOUTS;
     return loadLayout() ?? DEFAULT_LAYOUTS;
@@ -103,25 +105,28 @@ export function ChartDashboard({ from, to, resetKey }: ChartDashboardProps) {
   }, []);
 
   return (
-    <ResponsiveGridLayout
-      className="layout"
-      layouts={layouts}
-      breakpoints={{ lg: 1024, md: 768, sm: 0 }}
-      cols={{ lg: 2, md: 2, sm: 1 }}
-      rowHeight={140}
-      onLayoutChange={handleLayoutChange}
-      isResizable={true}
-      isDraggable={true}
-      margin={[16, 16]}
-      draggableHandle=".chart-drag-handle"
-    >
-      {CHART_ITEMS.map(({ key, title }) => (
-        <div key={key}>
-          <ChartCard title={title}>
-            {getChartComponent(key, from, to)}
-          </ChartCard>
-        </div>
-      ))}
-    </ResponsiveGridLayout>
+    <div ref={containerRef}>
+      <ResponsiveGridLayout
+        className="layout"
+        width={width}
+        layouts={layouts}
+        breakpoints={{ lg: 1024, md: 768, sm: 0 }}
+        cols={{ lg: 2, md: 2, sm: 1 }}
+        rowHeight={140}
+        onLayoutChange={handleLayoutChange}
+        isResizable={true}
+        isDraggable={true}
+        margin={[16, 16]}
+        draggableHandle=".chart-drag-handle"
+      >
+        {CHART_ITEMS.map(({ key, title }) => (
+          <div key={key}>
+            <ChartCard title={title}>
+              {getChartComponent(key, from, to)}
+            </ChartCard>
+          </div>
+        ))}
+      </ResponsiveGridLayout>
+    </div>
   );
 }
