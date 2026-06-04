@@ -1,23 +1,25 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/DM-Dailywork_Matters-4f46e5?style=for-the-badge&labelColor=1e1b4b" alt="Dailywork Matters" />
+  <img src=".github/assets/banner.png" alt="Dailywork Matters" width="100%" />
 </p>
-
-<h1 align="center">Dailywork Matters</h1>
 
 <p align="center">
   <strong>Your AI-powered daily work journal. Zero effort. Full picture.</strong>
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/dailywork-matters"><img src="https://img.shields.io/npm/v/dailywork-matters?color=4f46e5&label=npm" alt="npm version" /></a>
-  <a href="https://github.com/highword/dailywork-matters-mcp/blob/main/LICENSE"><img src="https://img.shields.io/github/license/highword/dailywork-matters-mcp?color=22c55e" alt="License" /></a>
-  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue" alt="Platform" />
-  <img src="https://img.shields.io/badge/MCP-compatible-8b5cf6" alt="MCP Compatible" />
+  <a href="https://www.npmjs.com/package/dailywork-matters"><img src="https://img.shields.io/npm/v/dailywork-matters?color=4a7c8a&label=npm" alt="npm version" /></a>
+  <a href="https://github.com/highword/dailywork-matters-mcp/blob/main/LICENSE"><img src="https://img.shields.io/github/license/highword/dailywork-matters-mcp?color=4a7c8a" alt="License" /></a>
+  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-4a7c8a" alt="Platform" />
+  <img src="https://img.shields.io/badge/MCP-compatible-4a7c8a" alt="MCP Compatible" />
 </p>
 
 <p align="center">
   Aggregates your Claude Code sessions + Git history into intelligent, outcome-oriented daily summaries.<br/>
   Works as an <strong>MCP Server</strong> with any compatible client, plus a local <strong>Web UI</strong> for browsing and generating reports.
+</p>
+
+<p align="center">
+  <a href="./README_CN.md">中文</a> | English
 </p>
 
 ---
